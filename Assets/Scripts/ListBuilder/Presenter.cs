@@ -14,6 +14,16 @@ namespace ui6
         void Release();
     }
 
+
+    public interface ITickable
+    {
+        void Tick();
+    }
+
+    public interface IActionPresenter : IDrawableCustomHeight, ITickable
+    {
+    }
+
     public interface IDrawableCustomHeight : IDrawable, IHasHeight
     {
     }

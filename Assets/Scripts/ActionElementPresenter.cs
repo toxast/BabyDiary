@@ -1,7 +1,8 @@
 ﻿using System;
 using ui6;
 
-public class ActionElementPresenter : Presenter<ActionElementView>, IDrawableCustomHeight
+
+public class IntervalActionElementPresenter : Presenter<ActionElementView>, IActionPresenter
 {
     public float height;
     float IHasHeight.height {
@@ -12,12 +13,12 @@ public class ActionElementPresenter : Presenter<ActionElementView>, IDrawableCus
     public DateIntervalManager manager { get; private set;}
     public event Action OnTable = delegate { };
 
-    public ActionElementPresenter(DateIntervalManager manager, ActionElementView prefab, float height) : base(prefab) {
+    public IntervalActionElementPresenter(DateIntervalManager manager, ActionElementView prefab, float height) : base(prefab) {
         this.height = height;
         this.manager = manager;
     }
 
-    public void Refresh() {
+    public void Tick() {
         RefreshView();
     }
 

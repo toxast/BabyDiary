@@ -27,6 +27,7 @@ public class Manager : MonoBehaviour {
     ICurrentUI current;
 
     [System.NonSerialized] List<DateIntervalManager> managers = new List<DateIntervalManager>();
+    BoolManager boobManager;
     //FloatPerDateManager weightManager;
     //FloatPerDateManager lengthManager;
 
@@ -48,17 +49,20 @@ public class Manager : MonoBehaviour {
             manager.Load();
             managers.Add(manager);
         }
+        {
+            boobManager = new BoolManager(Type2Prefix(SaveType.Left_Right_Boob));
+            boobManager.Load();
+        }
+
+        fastActionsUI.Open(managers, boobManager);
+        current = fastActionsUI;
 
         tableUI.OnBack += TableUI_OnBack;
-
-        fastActionsUI.Open(managers);
-
-        current = fastActionsUI;
     }
 
     void TableUI_OnBack() {
         SetCurrent(fastActionsUI);
-        fastActionsUI.Open(managers);
+        fastActionsUI.Open(managers, boobManager);
     }
 
     public void OpenTable(DateIntervalManager manager) {

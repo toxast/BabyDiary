@@ -6,6 +6,7 @@
     Length = 5,
     Poo = 6,
     Pee = 7,
+    Left_Right_Boob,
     TestSleep = 901,
     TestEat = 902,
 }
